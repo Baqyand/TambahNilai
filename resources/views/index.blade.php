@@ -13,6 +13,9 @@
             overflow: auto;
             display: none;
         }
+        .card:hover {
+            cursor: pointer;
+        }
     </style>
 @endpush
 
@@ -29,7 +32,7 @@
     <div class="map1">
         <div class="d-flex justify-content-srat p-5" style="margin-left: 150px;">
             <div class="d-flex justify-content-start" style="margin-right: 200px;" id="kelas-g">
-                <div class="card p-5 bg-primary mr-2 text-center">
+                <div class="card p-5 bg-primary mr-2 text-center" data-toggle="modal" data-target="#exampleModal">
                     <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
                     <h6 class="text-white">G 1.1</h6>
                 </div>
@@ -227,6 +230,28 @@
             </div>
         </div> 
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('js')
