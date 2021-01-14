@@ -223,29 +223,33 @@
                     "status" : ""
                 }
             ],
-            "2" : {
-                "E.2.1" : {
+            "2" : [
+                {
                     "id" : "E.2.1",
                     "nama_ruangan" : "Kelas E.2.1",
                     "keterangan" : "Ini adalah ruang E.2.1",
                     "status" : ""
                 },
-                "E.2.2" : {
+                {
                     "id" : "E.2.2",
                     "nama_ruangan" : "Kelas E.2.2",
                     "keterangan" : "Ini adalah ruang E.2.2",
                     "status" : ""
                 },
-                "E.2.3" : {
+                {
                     "id" : "E.2.3",
                     "nama_ruangan" : "Kelas E.2.3",
                     "keterangan" : "Ini adalah ruang E.2.3",
                     "status" : ""
                 }
-            }
+            ]
         },
         "F" : {
             "1" : [
+                {
+                    "id" : "kantin",
+                    "nama_ruangan" : "Kantin" 
+                },
                 {
                     "id" : "F.1.1",
                     "nama_ruangan" : "Kelas F.1.1",
