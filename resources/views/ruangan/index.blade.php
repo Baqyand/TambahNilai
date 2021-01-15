@@ -47,7 +47,7 @@
                             @else
                             <td><span class="btn btn-outline-success btn-sm" style="cursor:auto; font-size: 0.8rem;">Kosong</span></td>
                             @endif
-                            <td>Lorem ipsum dolor sit amet</td>
+                            <td>{{ $listRuangan['deskripsi'] }}</td>
                             <td>
                                 <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
                                 <button class="btn btn-danger"><i class="fas fa-trash"></i></button>

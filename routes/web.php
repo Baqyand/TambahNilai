@@ -13,6 +13,7 @@ Route::get('/', [PageController::class, 'index']);
 
 Route::get('/ruangan', [RuanganController::class, 'index'])->name('ruangan.index');
 Route::get('/ruangan/create', [RuanganController::class, 'create'])->name('ruangan.create');
+Route::post('/ruangan', [RuanganController::class, 'store'])->name('ruangan.store');
 
 /*
 |--------------------------------------------------------------------------

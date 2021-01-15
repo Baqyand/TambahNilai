@@ -49,25 +49,33 @@ class RuanganController extends Controller
 
     public function store(Request $request){
         $validatedData = $request->validate([
-            'name'      => 'required',
+            'nama'      => 'required',
             'tipe'      => 'required|string',
             'lantai'    => 'required|numeric',
             'blok'      => 'required|string',
             'status'    => 'required',
+            'deskripsi' => 'required'
 
         ], [
-            'name.required'     => 'Nama ruangan tidak boleh kosong',
+            'nama.required'     => 'Nama ruangan tidak boleh kosong',
             'tipe.required'     => 'Pilih tipe terlebih dahulu',
             'lantai.required'   => 'Pilih lantai terlebih dahulu',
             'blok.required'     => 'Pilih blok terlebih dahulu',
             'status.required'   => 'Pilih status terlebih dahulu'
         ]);
 
-        if($validatedData->fails()){
-            return redirect('/ruangan/create')->with('error', 'Data gagal ditambahkan');
+        $input = Ruangan::create($validatedData);
+
+        if($input){
+            return redirect('/ruangan')->with('success', 'Data berhasil ditambahkan');
         }else{
-            return back()->with('success', 'Data berhasil ditambahkan');
+            return redirect('/ruangan/create')->with('error', 'Data gagal ditambahkan');
         }
+    }
+
+    public function edit(Request $request, $id){
+        $dataRuangan = Ruangan::find($id);
+        return view('ruangan.form', compact('dataRuangan'));
     }
 
     public function update(){

@@ -11,46 +11,86 @@
 @endpush
 
 @section('content')
+
+<?php
+    if (!empty($dataRuangan)) {
+        $judulForm = "Edit Data Ruangan";
+    }else{
+        $judulForm = "Form Data Ruangan";
+    }
+?>
             
 <div class="card mt-4">
     <div class="card-header">
         <div class="d-flex justify-content-start">
             <a href="{{ route('ruangan.index') }}" class="btn btn-primary mr-3"><i class="fas fa-arrow-left mt-1 fa-xs"></i></a>
-            <h5 class="mt-2">Form Data Ruangan</h5>
+            <h5 class="mt-2"><?= $judulForm ?></h5>
         </div>
     </div>
     <div class="card-body p-4 layout">
-        <form>
+        {{-- form action --}}
+        <form action="{{ url('ruangan', @$dataRuangan->id)}}" method="post">
+            @csrf
+            @if(!empty($dataRuangan))
+                @method('PATCH')
+            @endif
             <div class="form-group">
                 <label for="nama">Nama</label>
-                <input class="form-control form-control-sm" type="text" placeholder="Masukan Nama Ruangan" id="nama" name="nama">
+                <input class="form-control form-control-sm" type="text" placeholder="Masukan Nama Ruangan" id="nama" name="nama" value="{{ old('nama', @$dataRuangan->nama)}}">
+                @if ($errors->has('nama'))
+                    <span class="text-danger">{{ $errors->first('nama') }}</span>
+                @endif
             </div>
             <div class="form-row mb-3">
                 <div class="col">
                     <label for="lantai" class="text-dark">Lantai</label>
                     <select class="form-control form-control-sm" id="lantai" name="lantai">
-                        <option>select</option>
+                        <option disabled selected>Pilih lantai</option>
+                        <option>1</option>
+                        <option>2</option>
                     </select>
+                @if ($errors->has('lantai'))
+                    <span class="text-danger">{{ $errors->first('lantai') }}</span>
+                @endif
                 </div>
                 <div class="col">
                     <label for="blok" class="text-dark">Blok</label>
                     <select class="form-control form-control-sm" id="blok" name="blok">
-                        <option>select</option>
+                        <?php $blok = ['A','B', 'C','D','E', 'F', 'G', 'H']; ?>
+                        <option disabled selected>Pilih blok</option>
+                        @foreach($blok as $listBlok)
+                        <option>{{ $listBlok }}</option>
+                        @endforeach
                     </select>
+                @if ($errors->has('blok'))
+                    <span class="text-danger">{{ $errors->first('blok') }}</span>
+                @endif
                 </div>
             </div>
             <div class="form-row mb-3">
                 <div class="col">
                     <label for="tipe" class="text-dark">Tipe</label>
                     <select class="form-control form-control-sm" id="tipe" name="tipe">
-                        <option>select</option>
+                        <?php $tipe = ['Laboratorium', 'Kelas']?>
+                        <option disabled selected>Pilih tipe</option>
+                        @foreach($tipe as $listtipe)
+                        <option>{{ $listtipe }}</option>
+                        @endforeach
                     </select>
+                @if ($errors->has('tipe'))
+                    <span class="text-danger">{{ $errors->first('tipe') }}</span>
+                @endif
                 </div>
                 <div class="col">
                     <label for="status" class="text-dark">Status</label>
                     <select class="form-control form-control-sm" id="status" name="status">
-                        <option>select</option>
+                        <option disabled selected>Pilih status</option>
+                        <option>Digunakan</option>
+                        <option>Kosong</option>
                     </select>
+                @if ($errors->has('status'))
+                    <span class="text-danger">{{ $errors->first('status') }}</span>
+                @endif
                 </div>
             </div>
             <div class="form-group">
