@@ -30,7 +30,7 @@
     </div>
 
     <div class="map1">
-        <div class="d-flex justify-content-srat p-5" style="margin-left: 150px;">
+        <div class="d-flex justify-content-start p-5" style="margin-left: 150px;">
             <div class="d-flex justify-content-start" style="margin-right: 200px;" id="kelas-g">
                 <div class="card p-5 bg-primary mr-2 text-center" data-toggle="modal" data-target="#exampleModal">
                     <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
@@ -58,7 +58,7 @@
                 </div>
             </div>
         </div> 
-        <div class="d-flex justify-content-srat p-5">
+        <div class="d-flex justify-content-start p-5">
             <div class="d-inline mr-5">
                 <div id="kelas-f">
                     <div class="card p-5 bg-warning mb-2 text-center">
