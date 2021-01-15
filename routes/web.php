@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\{PageController, RuanganController, SaranaPrasaranaController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class, 'index']);
-Route::get('/dashboard');
+Route::get('/ruangan', [RuanganController::class, 'index'])->name('ruangan.index');
+Route::get('/sarpras', [SaranaPrasaranaController::class, 'index'])->name('sarpras.index');

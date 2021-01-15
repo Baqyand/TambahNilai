@@ -8,18 +8,19 @@ use App\Models\Sarpras;
 
 class RuanganController extends Controller
 {
-    function getRuanganAjax(Request $request){
+    function getRuanganAjax(Request $request)
+    {
         $getData = Ruangan::select('*');
-        if($request->lantai != ""){
+        if ($request->lantai != "") {
             $getData = $getData->where('lantai', $request->lantai);
         }
-        if($request->blok != ""){
+        if ($request->blok != "") {
             $getData = $getData->where('blok', $request->blok);
         }
-        if($request->tipe != ""){
+        if ($request->tipe != "") {
             $getData = $getData->where('tipe', $request->tipe);
         }
-        if($request->status != ""){
+        if ($request->status != "") {
             $getData = $getData->where('status', $request->status);
         }
 
@@ -28,10 +29,14 @@ class RuanganController extends Controller
         return response(['dataRuang' => $getData]);
     }
 
-    function getSarprasAjax(Request $request){
+    function getSarprasAjax(Request $request)
+    {
         $getData = Sarpras::where('id_ruangan', $request->id_ruangan)->get();
         return response(['dataSarpras' => $getData]);
     }
 
-
+    public function index()
+    {
+        return view('ruangan.index');
+    }
 }
