@@ -10,4 +10,9 @@ class SaranaPrasaranaController extends Controller
     {
         return view('sarpras.index');
     }
+
+    public function create()
+    {
+        return view('sarpras.form');
+    }
 }

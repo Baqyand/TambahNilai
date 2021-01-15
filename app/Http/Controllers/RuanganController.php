@@ -39,4 +39,9 @@ class RuanganController extends Controller
     {
         return view('ruangan.index');
     }
+
+    public function create()
+    {
+        return view('ruangan.form');
+    }
 }

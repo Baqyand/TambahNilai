@@ -107,18 +107,52 @@
 					<span class="mt-1 text-light">Mapping School</span>
 				</div>
 				<div class="list-group mt-2">
-					<a href="/" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('/')) ? 'active' : '' }}">
+					<a href="/" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('/')) ? '' : '' }}">
 						<i class="fas fa-map-marker-alt fa-md text-white mt-1 mr-3 ml-3"></i>
 						<span>Maps</span>
 					</a>
-					<a href="{{ route('ruangan.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('ruangan')) ? 'active' : '' }}">
+					@if ((request()->is('/')))
+						<div class="list-group-item list-group-item-action bg-dark active">
+							<span class="ml-2">Filter</span>
+							<div class="card p-3 mr-2 ml-2 mt-2 mb-2">
+								<form>
+									<div class="form-group">
+									<label for="lantai" class="text-dark">Lantai</label>
+									<select class="form-control form-control-sm" id="lantai">
+										<option>select</option>
+									</select>
+									</div>
+									<div class="form-group">
+										<label for="status" class="text-dark">Blok</label>
+										<select class="form-control form-control-sm" id="status">
+										<option>select</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="tipe" class="text-dark">Tipe</label>
+										<select class="form-control form-control-sm" id="tipe">
+										<option>select</option>
+										</select>
+									</div>
+									<div class="form-group">
+										<label for="status" class="text-dark">Status</label>
+										<select class="form-control form-control-sm" id="status">
+										<option>select</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-primary">Active</button>
+								</form>							
+							</div>
+						</div>
+					@endif					
+					<a href="{{ route('ruangan.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('ruangan','ruangan/create')) ? 'active' : '' }}">
 						<i class="fas fa-chalkboard-teacher fa-md text-white mt-1 mr-3 ml-2"></i>
 						<span>Ruangan</span>
 					</a>
-					<a href="{{ route('sarpras.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('sarpras')) ? 'active' : '' }}">
+					<a href="{{ route('sarpras.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('sarpras','sarpras/create')) ? 'active' : '' }}">
 						<i class="fas fa-tools fa-md text-white mt-1 mr-4 ml-2"></i>
 						<span>Sarpras</span>
-					</a>
+					</a>					
 				</div>
 			</div>
 			<!-- Sidebar End -->
