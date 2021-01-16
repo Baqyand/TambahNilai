@@ -44,10 +44,10 @@
             <div class="form-row mb-3">
                 <div class="col">
                     <label for="lantai" class="text-dark">Lantai</label>
-                    <select class="form-control form-control-sm" id="lantai" name="lantai">
+                <select class="form-control form-control-sm" id="lantai" name="lantai">
                         <option disabled selected>Pilih lantai</option>
-                        <option>1</option>
-                        <option>2</option>
+                        <option {{ old('lantai', @$dataRuangan->lantai)=="1" ? "selected" : '' }}>1</option>
+                        <option {{ old('lantai', @$dataRuangan->lantai)=="2" ? "selected" : '' }}>2</option>
                     </select>
                 @if ($errors->has('lantai'))
                     <span class="text-danger">{{ $errors->first('lantai') }}</span>
@@ -55,11 +55,11 @@
                 </div>
                 <div class="col">
                     <label for="blok" class="text-dark">Blok</label>
-                    <select class="form-control form-control-sm" id="blok" name="blok">
+                    <select class="form-control form-control-sm" id="blok" name="blok" >
                         <?php $blok = ['A','B', 'C','D','E', 'F', 'G', 'H']; ?>
                         <option disabled selected>Pilih blok</option>
                         @foreach($blok as $listBlok)
-                        <option>{{ $listBlok }}</option>
+                        <option {{ old('blok', @$dataRuangan->blok)=="$listBlok" ? "selected" : '' }}>{{ $listBlok }}</option>
                         @endforeach
                     </select>
                 @if ($errors->has('blok'))
@@ -74,7 +74,7 @@
                         <?php $tipe = ['Laboratorium', 'Kelas']?>
                         <option disabled selected>Pilih tipe</option>
                         @foreach($tipe as $listtipe)
-                        <option>{{ $listtipe }}</option>
+                        <option {{ old('tipe', @$dataRuangan->tipe)=="$listtipe" ? "selected" : '' }}>{{ $listtipe }}</option>
                         @endforeach
                     </select>
                 @if ($errors->has('tipe'))
@@ -85,8 +85,8 @@
                     <label for="status" class="text-dark">Status</label>
                     <select class="form-control form-control-sm" id="status" name="status">
                         <option disabled selected>Pilih status</option>
-                        <option>Digunakan</option>
-                        <option>Kosong</option>
+                        <option {{ old('status', @$dataRuangan->status)=="Digunakan" ? "selected" : '' }}>Digunakan</option>
+                        <option {{ old('status', @$dataRuangan->status)=="Kosong" ? "selected" : '' }}>Kosong</option>
                     </select>
                 @if ($errors->has('status'))
                     <span class="text-danger">{{ $errors->first('status') }}</span>
@@ -95,7 +95,10 @@
             </div>
             <div class="form-group">
                 <label for="deskripsi">Deskripsi</label>
-                <textarea class="form-control" id="deskripsi" rows="6" style="resize: none;" name="deskripsi"></textarea>
+                <textarea class="form-control" id="deskripsi" rows="6" style="resize: none;" name="deskripsi">{{old('deskripsi',@$dataRuangan->deskripsi)}}</textarea>
+                @if ($errors->has('deskripsi'))
+                    <span class="text-danger">{{ $errors->first('deskripsi') }}</span>
+                @endif
               </div>
             <button type="submit" class="btn btn-primary float-right">Submit</button>
         </form>							

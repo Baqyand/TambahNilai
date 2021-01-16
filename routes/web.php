@@ -13,6 +13,9 @@ Route::get('/', [PageController::class, 'index']);
 
 Route::get('/ruangan', [RuanganController::class, 'index'])->name('ruangan.index');
 Route::get('/ruangan/create', [RuanganController::class, 'create'])->name('ruangan.create');
+Route::get('/ruangan/{id}/edit', [RuanganController::class, 'edit'])->name('ruangan.edit');
+Route::patch('/ruangan/{id}', [RuanganController::class, 'update'])->name('ruangan.update');
+Route::delete('/ruangan/{id}', [RuanganController::class, 'destroy'])->name('ruangan.destroy');
 Route::post('/ruangan', [RuanganController::class, 'store'])->name('ruangan.store');
 
 /*

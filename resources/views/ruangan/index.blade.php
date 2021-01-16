@@ -49,8 +49,14 @@
                             @endif
                             <td>{{ $listRuangan['deskripsi'] }}</td>
                             <td>
-                                <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                <div class="row justify-content-center">
+                                    <a href="{{ url('/ruangan/'.$listRuangan['id'].'/edit') }}" class="btn btn-info col-4"><i class="fas fa-edit"></i></a>
+                                    <form action="{{ url('/ruangan', $listRuangan['id']) }}" method="POST">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-danger col" ><i class="fas fa-trash"></i></button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

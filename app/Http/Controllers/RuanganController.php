@@ -53,8 +53,7 @@ class RuanganController extends Controller
             'tipe'      => 'required|string',
             'lantai'    => 'required|numeric',
             'blok'      => 'required|string',
-            'status'    => 'required',
-            'deskripsi' => 'required'
+            'status'    => 'required'
 
         ], [
             'nama.required'     => 'Nama ruangan tidak boleh kosong',
@@ -78,7 +77,30 @@ class RuanganController extends Controller
         return view('ruangan.form', compact('dataRuangan'));
     }
 
-    public function update(){
-
+    public function update(Request $request,$id){
+        $request->validate([
+            'nama'      => 'required'
+        ],[
+            'nama.required'     => 'Nama ruangan tidak boleh kosong'
+        ]);
+        $input = $request->all();
+        unset($input['_token']);
+        unset($input['_method']);
+        $update = Ruangan::where('id',$id)->update($input);
+        if($update){
+            return redirect('/ruangan')->with('success','Data berhasil diupdate');
+        }
+        else{
+            return redirect()->back()->with('error','Data gagal diupdate');
+        }
+    }
+    public function destroy($id){
+        $delete = Ruangan::where('id',$id)->delete();
+        if($delete){
+            return redirect('/ruangan')->with('success','Data berhasil dihapus');
+        }
+        else{
+            return redirect()->back()->with('error','Data gagal dihapus');
+        }
     }
 }
