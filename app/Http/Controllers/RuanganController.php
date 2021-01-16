@@ -40,6 +40,8 @@ class RuanganController extends Controller
         $dataRuangan = Ruangan::select('*')->paginate(8);
 
         return view('ruangan.index', compact('dataRuangan'));
+
+     
     }
 
     public function create()
@@ -103,4 +105,6 @@ class RuanganController extends Controller
             return redirect()->back()->with('error','Data gagal dihapus');
         }
     }
+
+   
 }

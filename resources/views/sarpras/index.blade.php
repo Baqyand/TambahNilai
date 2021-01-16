@@ -33,28 +33,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($sarpras as $s)
                     <tr align="center">
-                        <td>1</td>
-                        <td>Meja</td>
-                        <td>40</td>
-                        <td>Baru</td>
-                        <td>Dana 2018</td>
+                        <td>{{ $s->id}}</td>
+                        <td>{{ $s->nama}}</td>
+                        <td>{{ $s->jumlah}}</td>
+                        <td>{{ $s->kondisi}}</td>
+                        <td>{{ $s->catatan}}</td>
                         <td>
-                            <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                            <a href="sarpras/edit" class="btn btn-info"><i class="fas fa-edit"></i></a>
                             <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>
-                    <tr align="center">
-                        <td>2</td>
-                        <td>Kursi</td>
-                        <td>80</td>
-                        <td>Bekas</td>
-                        <td>Dana 2018</td>
-                        <td>
-                            <a href="" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

@@ -9,5 +9,5 @@ class Sarpras extends Model
 {
     use HasFactory;
     protected $table = 'sarpras';
-    protected $guarded = ['id'];
+    protected $fillable = ['id_ruangan','nama','catatan','kondisi','jumlah'];
 }

@@ -100,6 +100,7 @@
                     <span class="text-danger">{{ $errors->first('deskripsi') }}</span>
                 @endif
               </div>
+              @include('sweetalert::alert')
             <button type="submit" class="btn btn-primary float-right">Submit</button>
         </form>							
     </div>

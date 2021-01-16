@@ -26,3 +26,5 @@ Route::post('/ruangan', [RuanganController::class, 'store'])->name('ruangan.stor
 
 Route::get('/sarpras', [SaranaPrasaranaController::class, 'index'])->name('sarpras.index');
 Route::get('/sarpras/create', [SaranaPrasaranaController::class, 'create'])->name('sarpras.create');
+Route::post('/sarpras', [SaranaPrasaranaController::class, 'store'])->name('sarpras.store');
+
