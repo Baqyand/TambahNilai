@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Ruangan;
 use App\Models\Sarpras;
+use Alert;
 
 class RuanganController extends Controller
 {
@@ -68,9 +69,11 @@ class RuanganController extends Controller
         $input = Ruangan::create($validatedData);
 
         if($input){
-            return redirect('/ruangan')->with('success', 'Data berhasil ditambahkan');
+            Alert::success('Success', 'Data berhasil ditambahkan');
+            return redirect('/ruangan');
         }else{
-            return redirect('/ruangan/create')->with('error', 'Data gagal ditambahkan');
+            Alert::error('Error', 'Data gagal ditambahkan');
+            return redirect('/ruangan/create');
         }
     }
 
@@ -90,10 +93,12 @@ class RuanganController extends Controller
         unset($input['_method']);
         $update = Ruangan::where('id',$id)->update($input);
         if($update){
-            return redirect('/ruangan')->with('success','Data berhasil diupdate');
+            Alert::success('Success', 'Data berhasil diperbarui');
+            return redirect('/ruangan');
         }
         else{
-            return redirect()->back()->with('error','Data gagal diupdate');
+            Alert::error('Error', 'Data gagal diperbarui');
+            return redirect()->back();
         }
     }
     public function destroy($id){

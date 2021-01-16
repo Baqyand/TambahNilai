@@ -14,8 +14,10 @@
 
 <?php
     if (!empty($dataRuangan)) {
+        $action = "Edit";
         $judulForm = "Edit Data Ruangan";
     }else{
+        $action = "Tambah";
         $judulForm = "Form Data Ruangan";
     }
 ?>
@@ -101,7 +103,7 @@
                 @endif
               </div>
               @include('sweetalert::alert')
-            <button type="submit" class="btn btn-primary float-right">Submit</button>
+            <button type="submit" class="btn btn-primary float-right"><?= $action ?></button>
         </form>							
     </div>
 </div>

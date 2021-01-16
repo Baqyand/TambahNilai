@@ -11,7 +11,7 @@
 @endpush
 
 @section('content')
-            
+@include('sweetalert::alert')
 <div class="card mt-4">
     <div class="card-header">
         <div class="d-flex justify-content-between">
