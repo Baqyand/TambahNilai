@@ -49,8 +49,8 @@ class SaranaPrasaranaController extends Controller
     }
 
     public function edit(Request $request, $id){
-        dd($request);
-        $ruangan = Ruangan::find($id)->first();
+        //dd($id);
+        $ruangan = Ruangan::where('id', $id)->get();
         $sarpras = Sarpras::find($id);
 
       

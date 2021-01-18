@@ -27,15 +27,16 @@
     <div class="card mt-4">
         <div class="card-header">
             <div class="d-flex justify-content-start">
+            @if(!empty($sarpras))
                 <a href="{{ route('sarpras.index') }}" class="btn btn-primary mr-3"><i
                         class="fas fa-arrow-left mt-1 fa-xs"></i></a>
                 <h5 class="mt-2">Form Data Sarana Prasarana</h5>
             </div>
         </div>
         <div class="card-body p-4 layout">
-            <form method="POST" action="{{ url('sarpras,', @$ruangan['id']) }}">
+            <form method="POST" action="{{ route('sarpras.store', @$ruangan['id']) }}">
                  @csrf
-                    @if(!empty($ruangan))
+                    @if(!empty($sarpras))
                     @method('PATCH')
                     @endif
                     
