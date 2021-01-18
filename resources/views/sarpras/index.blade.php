@@ -33,7 +33,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($sarpras as $s)
+                    @foreach($ruangan as $s)
                     <tr align="center">
                         <td>{{ $s->id}}</td>
                         <td>{{ $s->nama}}</td>
@@ -41,7 +41,8 @@
                         <td>{{ $s->kondisi}}</td>
                         <td>{{ $s->catatan}}</td>
                         <td>
-                            <a href="sarpras/edit" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                            <a href="{{ url('/sarpras/edit',$s->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                            <!-- <form action=""></form> -->
                             <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                         </td>
                     </tr>

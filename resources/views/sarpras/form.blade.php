@@ -12,6 +12,17 @@
 @endpush
 
 @section('content')
+<?php
+    if (!empty($sarpras)) {
+        
+        $action = "Edit";
+        $judulForm = "Edit Data Sarpras";
+    }else{
+        $action = "Tambah";
+        $judulForm = "Form Data Sarpras";
+    }
+?>
+         
 
     <div class="card mt-4">
         <div class="card-header">
@@ -22,8 +33,13 @@
             </div>
         </div>
         <div class="card-body p-4 layout">
-            <form method="POST" action={{ url('sarpras', @$sarpras->id) }}>
-                {{ csrf_field() }}
+            <form method="POST" action="{{ url('sarpras,', @$ruangan['id']) }}">
+                 @csrf
+                    @if(!empty($ruangan))
+                    @method('PATCH')
+                    @endif
+                    
+                
                 <div class="form-row mb-3">
                     <div class="col">
                         <label for="nama">Nama</label>
@@ -34,10 +50,12 @@
                         <label for="id_ruangan" class="text-dark">Ruangan</label>
                         <select class="form-control form-control-sm" id="id_ruangan" name="id_ruangan">
 
+                        @if(isset($ruangan))
                             @foreach ($ruangan as $dataRuangan)
                                 <option value="{{ $dataRuangan->id }}"> {{ $dataRuangan->nama }}</option>
                             @endforeach
-
+                        @endif    
+            
                         </select>
                     </div>
                 </div>

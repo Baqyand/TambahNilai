@@ -56,8 +56,8 @@ class RuanganController extends Controller
             'tipe'      => 'required|string',
             'lantai'    => 'required|numeric',
             'blok'      => 'required|string',
-            'status'    => 'required'
-
+            'status'    => 'required',
+            'deskripsi' => 'text'
         ], [
             'nama.required'     => 'Nama ruangan tidak boleh kosong',
             'tipe.required'     => 'Pilih tipe terlebih dahulu',
@@ -110,6 +110,4 @@ class RuanganController extends Controller
             return redirect()->back()->with('error','Data gagal dihapus');
         }
     }
-
-   
 }
