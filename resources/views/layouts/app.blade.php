@@ -9,21 +9,21 @@
     {{-- Favicon --}}
     <link rel="shortcut icon" href="{{ asset('img/smk.png') }}" type="image/x-icon">
 	
-	{{-- JS --}}
-	<script src="{{ asset('js/app.js') }}"></script>
-			
-	{{-- CSS --}}
-	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
-	@stack('css')
+		{{-- JS --}}
+		<script src="{{ asset('js/app.js') }}"></script>
+				
+		{{-- CSS --}}
+		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+		@stack('css')
 
-	<link href="{{ asset('datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+		<link href="{{ asset('datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
-    {{-- Fontawesome --}}
-	<script src="https://kit.fontawesome.com/f3e03d1e1d.js" crossorigin="anonymous"></script>
+		{{-- Fontawesome --}}
+		<script src="https://kit.fontawesome.com/f3e03d1e1d.js" crossorigin="anonymous"></script>
 
-	{{-- Font Google --}}
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+		{{-- Font Google --}}
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
     <style>
 			*{
@@ -33,11 +33,10 @@
 				width: 12px;
 				background: transparent ;
 			}
-
+			
 			::-webkit-scrollbar-thumb {
 				background: rgb(145, 151, 157) ;
 				border-radius: 5px;
-
 			}
 			body {
 				overflow: hidden;
@@ -47,7 +46,7 @@
 			}
 			.sidebar {
 				min-height: 100vh;
-				margin-left: -15rem;
+				margin-left: -16rem;
 				-webkit-transition: margin .25s ease-out;
 				-moz-transition: margin .25s ease-out;
 				-o-transition: margin .25s ease-out;
@@ -56,7 +55,6 @@
 			.sidebar .sidebar-header {
 				padding: 0.875rem 1.25rem;
 				font-size: 1.2rem;
-				/* background-color: #222; */
 			}
 			.sidebar-header .img-logo {
 				width: 35px;
@@ -66,17 +64,25 @@
 				width: 16rem;
 			}
 			.page-content {
-                min-width: 100vw;
+        min-width: 100vw;
 			}
 			.list-group-item span {
 				font-size: 0.9em;
 			}
-			/* .page-content .content {
-				max-height: 100%;
-				overflow: auto;
-			} */
 			#wrapper.toggled .sidebar {
 				margin-left: 0;
+			}
+			.content .content-map {
+					padding: 0;
+					border-radius: 10px;
+				}
+			.content .map {
+					overflow: auto;
+					max-height: 85vh;
+			}
+
+			.lantai-act {
+				display: none;
 			}
 
 			@media (min-width: 768px) {
@@ -90,7 +96,7 @@
 				}
 
 				#wrapper.toggled .sidebar {
-					margin-left: -15rem;
+					margin-left: -16rem;
 				}
 			}
     </style>
@@ -100,72 +106,25 @@
     
     <div class="d-flex" id="wrapper">
 
-      		<!-- Sidebar -->
+      <!-- Sidebar -->
 			<div class="sidebar bg-dark border-right">
 				<div class="sidebar-header d-flex">
 					<img src="{{ asset('img/smk.png') }}" class="img-logo mr-3" alt="img-logo">
 					<span class="mt-1 text-light">Mapping School</span>
 				</div>
-				<div class="list-group mt-2">
-					<a href="/" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('/')) ? '' : '' }}">
+				<div class="list-group">
+					<a href="/" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('/')) ? 'active' : '' }}">
 						<i class="fas fa-map-marker-alt fa-md text-white mt-1 mr-3 ml-3"></i>
 						<span>Maps</span>
 					</a>
-					@if ((request()->is('/')))
-						<div class="list-group-item list-group-item-action bg-dark active">
-							<span class="ml-2">Filter</span>
-							<div class="card p-3 mr-2 ml-2 mt-2 mb-2">
-								<form action="" method="GET">
-									<div class="form-group">
-									<label for="lantai" class="text-dark">Lantai</label>
-									<select class="form-control form-control-sm" id="lantai">
-										<option disabled selected>--Pilih Lantai--</option>
-										@foreach ($data['lantai'] as $item)
-											<option value="{{ $item }}">{{ $item }}</option>
-										@endforeach
-									</select>
-									</div>
-									<div class="form-group">
-										<label for="status" class="text-dark">Blok</label>
-										<select class="form-control form-control-sm" id="status">
-											<option disabled selected>--Pilih Blok--</option>
-											@foreach ($data['blok'] as $item)
-												<option value="{{ $item }}">{{ $item }}</option>
-											@endforeach
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="tipe" class="text-dark">Tipe</label>
-										<select class="form-control form-control-sm" id="tipe">
-											<option disabled selected>--Pilih Tipe--</option>
-											@foreach ($data['tipe'] as $item)
-											<option value="{{ $item }}">{{ $item }}</option>
-											@endforeach
-										</select>
-									</div>
-									<div class="form-group">
-										<label for="status" class="text-dark">Status</label>
-										<select class="form-control form-control-sm" id="status">
-											<option disabled selected>--Pilih Status--</option>
-											@foreach ($data['status'] as $item)
-											<option value="{{ $item }}">{{ $item }}</option>
-											@endforeach
-										</select>
-									</div>
-									<button type="submit" class="btn btn-primary">Active</button>
-									<button type="submit" class="btn btn-secondary">Hapus</button>
-								</form>							
-							</div>
-						</div>
-					@endif					
-					<a href="{{ route('ruangan.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('ruangan','ruangan/create')) ? 'active' : '' }}">
+					<a href="{{ route('ruangan.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('ruangan')) ? 'active' : '' }}">
 						<i class="fas fa-chalkboard-teacher fa-md text-white mt-1 mr-3 ml-2"></i>
 						<span>Ruangan</span>
 					</a>
-					<a href="{{ route('sarpras.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('sarpras','sarpras/create')) ? 'active' : '' }}">
+					<a href="{{ route('sarpras.index') }}" class="list-group-item list-group-item-action bg-dark text-light {{ (request()->is('sarpras')) ? 'active' : '' }}">
 						<i class="fas fa-tools fa-md text-white mt-1 mr-4 ml-2"></i>
 						<span>Sarpras</span>
-					</a>					
+					</a>
 				</div>
 			</div>
 			<!-- Sidebar End -->
@@ -174,14 +133,27 @@
 			<div class="page-content">
 
 				<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-					<button class="btn btn-light" id="btn-toggle">
+					<button class="btn btn-light mt-1" id="btn-toggle">
 						<i class="fas fa-bars fa-lg text-dark mt-2"></i>	
-                    </button>
-                    <h4 class="ml-2 mt-2">{{ $title }}</h4>
+          </button>
+          <h4 class="ml-2 mt-2 pt-1">{{ $title }}</h4>
+
+					<div class="select-lantai ml-3">
+						<select class="form-control" id="lantai">
+							<option>1</option>
+							<option>2</option>
+						</select>
+					</div>
 				</nav>
 
-				<div class="container-fluid content">
-                    @yield('content')
+				<div class="container-fluid">
+					<div class="content">
+						<div class="row content-map">
+							<div class="col map">
+								@yield('content')
+							</div>
+						</div>
+					</div>
 				</div>
 				
 			</div>
@@ -198,6 +170,18 @@
 		$("#btn-toggle").click(function(e) {
 			e.preventDefault();
 			$("#wrapper").toggleClass("toggled");
+		});
+
+		$("#lantai").on("change", function(){
+
+			if($("#lantai").val() == "1") {
+				$(".map-1").toggle("lantai-act");
+				$(".map-2").toggle("lantai-act");
+			} else {
+				$(".map-1").toggle("lantai-act");
+				$(".map-2").toggle("lantai-act");
+			}
+
 		});
 	</script>
 		

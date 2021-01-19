@@ -1,233 +1,382 @@
-@extends('layouts.app', ['title' => 'Denah SMKN 4 Bandung'])
+@extends('layouts.app', ['title' => 'Denah SMKN 4 Bandung Lantai'])
 
 @push('css')
-    <style>
-        .map1 {
-            margin-top: 10px;
-            width: 100%;
-            height: 640px;
-            overflow: auto;
-        }
-        .map2 {
-            width: 100%;
-            height: 1000px;
-            overflow: auto;
-            display: none;
-        }
-        .card:hover {
-            cursor: pointer;
-        }
-        th, td {
-            font-size: 0.8em;
-        }
-    </style>
+<style>
+		.map-1 .ruang-a {
+			position: absolute;
+			top: 700px;
+			left: 145px;
+		}
+		.map-1 .ruang-b {
+			position: absolute;
+			top: 11px;
+			left: 48px;
+		}
+
+		.map-1 .ruang-c {
+			position: absolute;
+			top: 135px;
+			left: 260px;
+		}
+
+		.map-1 .ruang-d {
+			position: absolute;
+			top: 732px;
+			left: 420px;
+		}
+
+		.map-1 .ruang-e {
+			position: absolute;
+			top: 272px;
+			left: 932px;
+		}
+
+		.map-1 .ruang-f {
+			position: absolute;
+			top: 136px;
+			left: 396px;
+		}
+
+		.map-1 .ruang-g {
+			position: absolute;
+			top: 196px;
+			left: 1197px;
+		}
+
+		.map-1 .ruang-h {
+			position: absolute;
+			top: 863px;
+			left: 453px;
+		}
+
+		.map-2 .ruang-b {
+			position: absolute;
+			top: 200px;
+			left: 48px;
+		}
+		
+		.lapang {
+			position: absolute;
+			top: 265px;
+			left: 400px
+		}
+
+		.lapang .btn {
+			background-color: orange;
+		}
+
+		.lobby {
+			position: absolute;
+			top: 960px;
+			left: 300px;
+		}
+
+		.eskul {
+			position: absolute;
+			top: 732px;
+			left: 1197px;
+		}
+
+		.btn-room {
+			text-decoration: none;
+			text-align: center;
+			background-color: #7b7ff6;
+			color: #f0f0f0;
+			font-weight: 600;
+			border-radius: 0;
+		}
+
+		.btn-room:hover {
+			opacity: 0.8;
+			color: white;
+		}
+	</style>
 @endpush
 
 @section('content')
             
-    <div class="map1">
-        <div class="d-flex justify-content-start p-5" style="margin-left: 150px;">
-            <div class="d-flex justify-content-start" style="margin-right: 200px;" id="kelas-g">
-                <div class="card p-5 bg-primary mr-2 text-center" data-toggle="modal" data-target="#exampleModal">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">G 1.1</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">G 1.1</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">G 1.1</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">G 1.1</h6>
-                </div>
-            </div>            
-            <div class="d-flex justify-content-start mr-5" id="kelas-eskul">
-                <div class="card p-5 bg-dark mr-2 text-center" style="height: 50px; width:170px;">
-                    <h6 class="text-white" style="margin-top: -10px;">Pramuka</h6>
-                </div>
-                <div class="card p-5 bg-dark mr-2 text-center" style="height: 50px; width:170px;">
-                    <h6 class="text-white" style="margin-top: -10px;">PMR</h6>
-                </div>
-            </div>
-        </div> 
-    </div>
-        
-        <div class="d-flex justify-content-srat p-5">
-            <div class="d-inline mr-5">
-                <div id="kelas-f">
-                    <div class="card p-5 bg-warning mb-2 text-center">
-                        <i class="fas fa-utensils fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">Kantin</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">F 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">F 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">F 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">F 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">F 1.1</h6>
-                    </div>
-                </div>
+    <!-- Map Lantai 1 -->
+		<div class="map-1" >
+		
+		<!-- Layout  -->
+		<div class="img-maps mb-5 ml-3">
+			<img src="{{ asset('img/lantai-1.png') }}" width="1280px" class="img-maps" alt="img-maps">
+		</div>
+		<!-- Layout End  -->
 
-            </div>            
-            <div class="d-flex justify-content-start ml-5 mr-5 mt-5">
-                <div class="d-inline">
+		<!-- Ruang A -->
+		<div class="kelas ruang-a">
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard fa-lg"></i><br>R. Guru
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-money-check-alt fa-lg"></i><br>R. Tata Usaha
+			</button>
+			<button class="btn btn-room d-block" style="margin-bottom: 55px;width: 120px; height:75px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-server fa-lg"></i><br>Server
+			</button>
 
-                    <div class="d-flex justify-content-start mb-5" id="kelas-e">
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:60px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-industry fa-lg"></i><br>R. WK Hubin
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:60px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-school fa-lg"></i><br>R. Kepsek
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:60px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-school fa-lg"></i><br>R. PKB
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:60px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-school fa-lg"></i><br>R.Kesiswaan
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:60px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard fa-lg"></i><br>R. Kurikulum
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:60px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-tools fa-lg"></i><br>R. Sarpras
+			</button>
+		</div>
 
-                        <div class="card p-5 bg-primary mr-2 text-center" style="height: 170px;">
-                            <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                            <h6 class="text-white">E 1.1</h6>
-                        </div>
-                        <div class="card p-5 bg-primary mr-2 text-center" style="height: 170px;">
-                            <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                            <h6 class="text-white">E 1.1</h6>
-                        </div>
-                        <div class="card p-5 bg-primary mr-2 text-center" style="height: 170px;">
-                            <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                            <h6 class="text-white">E 1.1</h6>
-                        </div>
-                        <div class="card p-5 bg-primary mr-2 text-center" style="height: 170px;">
-                            <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                            <h6 class="text-white">E 1.1</h6>
-                        </div>
-                        <div class="card p-5 bg-primary mr-2 text-center" style="height: 170px;">
-                            <i class="fas fa-cog fa-2x text-white mb-3"></i>
-                            <h6 class="text-white">Koperasi Siswa</h6>
-                        </div>
+		<!-- Ruang B + mesjid -->
+		<div class="kelas ruang-b">
+			<div class="mesjid d-flex">
+				<button class="btn btn-room mb-1 mr-1" style="width: 92px; height:98px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 5
+				</button>
+				<button class="btn btn-room mr-1" style="width: 100px; height:90px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 6
+				</button>
+				<button class="btn btn-room mr-1" style="background-color: #0080ff; width: 80px; height:90px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-toilet fa-lg"></i><br>WC
+				</button>
+				<button class="btn btn-room" style="background-color: #00a572; width: 145px; height:90px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-mosque fa-lg"></i><br>Mesjid
+				</button>
+			</div>
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 4
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 3
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 2
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 1
+			</button>
+			<button class="btn btn-room d-block" style="width: 208px; height:165px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-school fa-lg"></i><br>Tekno Park
+			</button>
+		</div>
 
-                    </div>
+		<!-- Ruang C -->
+		<div class="kelas ruang-c">
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:145px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>C 1.1
+			</button>
+			<button class="btn btn-room d-block mb-1 bg-warning" style="width: 92px; height:70px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab C1.2
+			</button>
+			<button class="btn btn-room d-block" style="margin-bottom: 52px; width: 92px; height:60px" data-toggle="modal" data-target="#modalData">
+			</button>
 
-                    <div class="card p-5 bg-success text-center text-white" style="height: 800px; width:570px;">
-                        <h6 style="margin-top: 300px;">Lapangan</h6>
-                        <h6>Olahraga</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="d-inline mr-5" style="margin-top: -140px;">
-                <div class="kelas-d">
-                    <div class="card p-5 bg-warning mb-2 text-center">
-                        <i class="fas fa-basketball-ball fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">R.Penjas</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">D 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">D 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">D 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">D 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">D 1.1</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="d-inline mr-5" style="margin-top: -140px;">
-                <div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">H 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">H 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">H 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">H 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">H 1.1</h6>
-                    </div>
-                    <div class="card p-5 bg-primary mb-2 text-center">
-                        <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                        <h6 class="text-white">H 1.1</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-start p-5">
-            <div class="d-flex justify-content-start" style="margin-right: 250px;" id="kelas-c">
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">C 1.1</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">C 1.1</h6>
-                </div>
-                <div class="card p-5 bg-primary text-center" style="margin-right: 100px;">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">C 1.1</h6>
-                </div>
-                <div class="card p-5 bg-secondary mr-2 text-center">
-                    <i class="fas fa-toilet fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">Toilet</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">C 1.1</h6>
-                </div>
-            </div>
-            <div class="d-flex justify-content-start" id="kelas-a">
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">Ruang Guru</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">Ruang Guru</h6>
-                </div>
-                <div class="card p-5 bg-primary text-center" style="margin-right: 100px;">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">Tata Usaha</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center" style="width: 220px;">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">Hubin</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center" style="width: 220px;">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">Kepala Sekolah</h6>
-                </div>
-                <div class="card p-5 bg-primary mr-2 text-center" style="width: 220px;">
-                    <i class="fas fa-chalkboard-teacher fa-2x text-white mb-3"></i>
-                    <h6 class="text-white">Kesiswaan</h6>
-                </div>
-            </div>
-        </div> 
-    </div>
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>WC
+			</button>
+			<button class="btn btn-room d-block" style="width: 92px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>C 1.3
+			</button>
+		</div>
+
+		<!-- Ruang D -->
+		<div class="kelas d-flex ruang-d">
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 1.1
+			</button>
+			<button class="btn btn-room mr-1 bg-warning" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab D 1.2
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 1.3
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 1.4
+			</button>
+			<button class="btn btn-room mr-1" style="width: 120px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 1.5
+			</button>
+			<button class="btn d-block btn-room mt-3 mr-1" style="width: 100px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-volleyball-ball fa-lg"></i><br>R. OR
+			</button>
+			<div class="wc">
+				<button class="btn d-block btn-room mt-3" style="background-color: #0080ff; width: 65px; height:80px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-chalkboard-teacher fa-lg"></i><br>WC
+				</button>
+			</div>
+		</div>
+
+		<!-- Ruang E -->
+		<div class="kelas ruang-e">
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-book fa-lg"></i><br>Perpus
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>E 1.2
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>E 1.3
+			</button>
+			<button class="btn btn-room d-block mb-1" style="background-color: #ff6101; width: 100px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-store fa-lg"></i><br>Koperasi
+			</button>
+		</div>
+
+		<!-- Ruang F -->
+		<div class="kelas d-flex ruang-f">
+			<button class="btn btn-room mr-1" style="width: 130px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.1
+			</button>
+			<button class="btn btn-room mr-1" style="width: 90px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-clinic-medical fa-lg"></i><br>UKS
+			</button>
+			<button class="btn btn-room" style="background-color: #ff5a5f; margin-right: 25px; width: 80px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-toilet fa-lg"></i><br>WC
+			</button>
+			<button class="btn btn-room mr-1" style="width: 100px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.2
+			</button>
+			<button class="btn btn-room mr-1" style="width: 105px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.3
+			</button>
+			<button class="btn btn-room mr-1" style="width: 105px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.4
+			</button>
+			<button class="btn btn-room" style="background-color: #ff6101; width: 80px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-utensils fa-lg"></i><br>Kantin
+			</button>
+		</div>
+
+		<!-- Ruang G -->
+		<div class="kelas ruang-g">
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>G 1
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>G 2
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>G 3
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>G 4
+			</button>
+		</div>
+		
+		<!-- Ruang H -->
+		<div class="kelas d-flex ruang-h">
+			<button class="btn btn-room mr-1" style="width: 110px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>ORBIT
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>R. EDU
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>R. TOOL
+			</button>
+			<div class="prodi-av">
+				<div class="ruang-av">
+					<button class="btn btn-room mb-1 mr-1" style=" width: 120px; height:40px" data-toggle="modal" data-target="#modalData">
+						<i class="fas fa-chalkboard-teacher fa-lg mr-2"></i>R. AV
+					</button>
+				</div>
+				<div class="mushola d-flex">
+				<button class="btn btn-room mb-1 mr-1" style="background-color: #00a572; width: 60px; height:40px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-mosque fa-lg"></i><br>
+				</button>
+				<button class="btn btn-room mr-1" style="background-color: #0080ff; width: 55px; height:40px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-toilet fa-lg"></i><br>
+				</button>
+				</div>
+			</div>
+			<button class="btn btn-room mr-1" style="width: 110px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>H 5
+			</button>
+			<button class="btn btn-room mr-1" style="width: 120px; height:85px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>H 6
+			</button>
+		</div>
+		
+
+		<!-- Ruang Eskul -->
+		<div class="kelas eskul">
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:70px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>Pramuka
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:70px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>OSIS
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:70px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>PMR
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:70px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>Paskibra
+			</button>
+		</div>
+		
+		<!-- Lobby -->
+		<div class="kelas lobby d-flex">
+			<div class="komite">
+				<button class="btn btn-room d-block mb-1 mr-1" style="width: 100px; height:60px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-school fa-lg"></i><br>R. Komite
+				</button>
+				<button class="btn btn-room d-block mb-1" style="background-color: #0080ff; width: 100px; height:60px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-toilet fa-lg"></i><br>WC Guru
+				</button>
+			</div>
+			<div class="toilet d-flex">
+				<button class="btn btn-room d-block mb-1 mr-1" style="background-color: #ff5a5f; width: 60px; height:125px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-toilet fa-lg"></i><br>WC Putri
+				</button>
+				<button class="btn btn-room d-block mb-1" style="background-color: #0080ff; width: 60px; height:125px" data-toggle="modal" data-target="#modalData">
+					<i class="fas fa-toilet fa-lg"></i><br>WC Putra
+				</button>
+			</div>
+		</div>
+
+		<!-- lapang -->
+		<div class="kelas lapang">
+			<button class="btn btn-room mr-1" style="font-size:25px; width: 480px; height:375px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-basketball-ball fa-2x"></i><br><span>Lapang</span>
+			</button>
+		</div>
+	</div>
+	<!-- Map Lantai 1 End -->
+
+
+
+
+
+	<!-- Map Lantai 2 -->
+	<div class="map-2 lantai-act">
+	
+		<!-- Layout  -->
+		<div class="img-maps mb-5 ml-3">
+			<img src="{{ asset('img/lantai-1.png') }}" width="1280px" class="img-maps" alt="img-maps">
+		</div>
+		<!-- Layout End  -->
+
+		<!-- Ruang B + mesjid -->
+		<div class="kelas ruang-b">
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 2.2
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 2.1
+			</button>
+		</div>
+
+	</div>
+	<!-- Map Lantai 2 End -->
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
