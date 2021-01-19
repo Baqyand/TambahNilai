@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Ruangan;
 use App\Models\Sarpras;
 use Alert;
+use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 
 class RuanganController extends Controller
 {
@@ -69,11 +70,11 @@ class RuanganController extends Controller
         $input = Ruangan::create($validatedData);
 
         if($input){
-            Alert::success('Success', 'Data berhasil ditambahkan');
-            return redirect('/ruangan');
+            FacadesAlert::success('Success', 'Data berhasil ditambahkan');
+            return redirect('/ruangan')->with('success', 'Data berhasil ditambahkan');
         }else{
-            Alert::error('Error', 'Data gagal ditambahkan');
-            return redirect('/ruangan/create');
+            FacadesAlert::error('Error', 'Data gagal ditambahkan');
+            return redirect('/ruangan/create')->with('error', 'Data gagal ditambahkan');
         }
     }
 
@@ -93,12 +94,12 @@ class RuanganController extends Controller
         unset($input['_method']);
         $update = Ruangan::where('id',$id)->update($input);
         if($update){
-            Alert::success('Success', 'Data berhasil diperbarui');
-            return redirect('/ruangan');
+            FacadesAlert::success('Euccess', 'Data berhasil diperbarui');
+            return redirect('/ruangan')->with('success', 'Data berhasil diperbarui');
         }
         else{
-            Alert::error('Error', 'Data gagal diperbarui');
-            return redirect()->back();
+            FacadesAlert::error('Error', 'Data gagal diperbarui');
+            return redirect()->back()->with('error', 'Data gagal diperbarui');
         }
     }
     public function destroy($id){

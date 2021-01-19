@@ -10,6 +10,10 @@ use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 
 class SaranaPrasaranaController extends Controller
 {
+    public function getSarprasAjax(Request $request){
+        $data = Sarpras::where('id_ruangan', $request->id_ruangan)->first();
+        return response(['data', $data]);
+    }
     public function index()
     {
         $ruangan= Sarpras::select('*')->paginate(8);

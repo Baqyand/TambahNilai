@@ -45,17 +45,17 @@
                     <h6 class="text-white">G 1.1</h6>
                 </div>
             </div>            
-            {{-- <div class="d-flex justify-content-start mr-5" id="kelas-eskul">
+            <div class="d-flex justify-content-start mr-5" id="kelas-eskul">
                 <div class="card p-5 bg-dark mr-2 text-center" style="height: 50px; width:170px;">
                     <h6 class="text-white" style="margin-top: -10px;">Pramuka</h6>
                 </div>
                 <div class="card p-5 bg-dark mr-2 text-center" style="height: 50px; width:170px;">
                     <h6 class="text-white" style="margin-top: -10px;">PMR</h6>
                 </div>
-            </div> --}}
+            </div>
         </div> 
     </div>
-        {{-- 
+        
         <div class="d-flex justify-content-srat p-5">
             <div class="d-inline mr-5">
                 <div id="kelas-f">
@@ -226,7 +226,7 @@
                     <h6 class="text-white">Kesiswaan</h6>
                 </div>
             </div>
-        </div>  --}}
+        </div> 
     </div>
 
     <!-- Modal -->

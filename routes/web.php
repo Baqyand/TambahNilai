@@ -1,9 +1,12 @@
 <?php
 
 use App\Http\Controllers\{PageController, RuanganController, SaranaPrasaranaController};
+use App\Models\Sarpras;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index']);
+Route::post('/getRuangan', [RuanganController::class, 'getRuangAjax']);
+Route::post('/getSarpras', [SaranaPrasaranaController::class, 'getSarprasAjax']);
 
 /*
 |--------------------------------------------------------------------------
