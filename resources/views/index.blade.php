@@ -2,7 +2,7 @@
 
 @push('css')
 <style>
-		.map-1 .ruang-a {
+		.ruang-a {
 			position: absolute;
 			top: 700px;
 			left: 145px;
@@ -19,19 +19,19 @@
 			left: 260px;
 		}
 
-		.map-1 .ruang-d {
+		.ruang-d {
 			position: absolute;
 			top: 732px;
 			left: 420px;
 		}
 
-		.map-1 .ruang-e {
+		.ruang-e {
 			position: absolute;
 			top: 272px;
 			left: 932px;
 		}
 
-		.map-1 .ruang-f {
+		.ruang-f {
 			position: absolute;
 			top: 136px;
 			left: 396px;
@@ -51,14 +51,32 @@
 
 		.map-2 .ruang-b {
 			position: absolute;
-			top: 200px;
+			top: 280px;
 			left: 48px;
+		}
+
+		.map-2 .ruang-c {
+			position: absolute;
+			top: 135px;
+			left: 260px;
+		}
+
+		.map-2 .ruang-g {
+			position: absolute;
+			top: 508px;
+			left: 1197px;
+		}
+
+		.map-2 .ict {
+			position: absolute;
+			top: 950px;
+			left: 270px;
 		}
 		
 		.lapang {
 			position: absolute;
 			top: 265px;
-			left: 400px
+			left: 400px;
 		}
 
 		.lapang .btn {
@@ -90,6 +108,7 @@
 			opacity: 0.8;
 			color: white;
 		}
+
 	</style>
 @endpush
 
@@ -239,17 +258,17 @@
 			<button class="btn btn-room mr-1" style="width: 90px; height:90px" data-toggle="modal" data-target="#modalData">
 				<i class="fas fa-clinic-medical fa-lg"></i><br>UKS
 			</button>
-			<button class="btn btn-room" style="background-color: #ff5a5f; margin-right: 25px; width: 80px; height:90px" data-toggle="modal" data-target="#modalData">
+			<button class="btn btn-room" style="background-color: #ff5a5f; margin-right: 26px; width: 79px; height:90px" data-toggle="modal" data-target="#modalData">
 				<i class="fas fa-toilet fa-lg"></i><br>WC
 			</button>
 			<button class="btn btn-room mr-1" style="width: 100px; height:90px" data-toggle="modal" data-target="#modalData">
-				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.2
-			</button>
-			<button class="btn btn-room mr-1" style="width: 105px; height:90px" data-toggle="modal" data-target="#modalData">
 				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.3
 			</button>
 			<button class="btn btn-room mr-1" style="width: 105px; height:90px" data-toggle="modal" data-target="#modalData">
 				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.4
+			</button>
+			<button class="btn btn-room mr-1" style="width: 105px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 1.5
 			</button>
 			<button class="btn btn-room" style="background-color: #ff6101; width: 80px; height:90px" data-toggle="modal" data-target="#modalData">
 				<i class="fas fa-utensils fa-lg"></i><br>Kantin
@@ -365,7 +384,35 @@
 		</div>
 		<!-- Layout End  -->
 
-		<!-- Ruang B + mesjid -->
+		<!-- Ruang A lt2 -->
+		<div class="kelas ruang-a">
+			<button class="btn btn-room d-block mb-1 bg-warning" style="width: 120px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab A 2.1
+			</button>
+			<button class="btn btn-room d-block mb-1 bg-warning" style="width: 120px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab A 2.2
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:70px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-camera fa-lg"></i><br>Stud. MM
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-money-check-alt fa-lg"></i><br>Lab MM
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:110px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard fa-lg"></i><br>R. Guru TI
+			</button>
+			<button class="btn btn-room d-block mb-1 bg-warning"" style="width: 120px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab A 2.6
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:70px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-warehouse fa-lg"></i><br>GudangA2.7
+			</button>
+			<button class="btn btn-room d-block mb-1 bg-warning"" style="width: 120px; height:80px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg "></i><br>Lab A 2.8
+			</button>
+		</div>
+
+		<!-- Ruang B lt 2 -->
 		<div class="kelas ruang-b">
 			<button class="btn btn-room d-block mb-1" style="width: 92px; height:80px" data-toggle="modal" data-target="#modalData">
 				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>B 2.2
@@ -375,11 +422,112 @@
 			</button>
 		</div>
 
+		<!-- Ruang C lt2 -->
+		<div class="kelas ruang-c">
+			<button class="btn btn-room d-block mb-1" style="width: 92px; height:170px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>C 2.3
+			</button>
+			<button class="btn btn-room d-block mb-1 bg-warning" style="width: 92px; height:160px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab C2.2
+			</button>
+			<button class="btn btn-room d-block" style="margin-bottom: 52px; width: 92px; height:160px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>C 2.1
+			</button>
+		</div>
+
+		<!-- Ruang D lt2 -->
+		<div class="kelas d-flex ruang-d">
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 2.1
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 2.2
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 2.3
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 2.4
+			</button>
+			<button class="btn btn-room mr-1" style="width: 110px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>D 2.5
+			</button>
+			<button class="btn btn-room mr-1" style="width: 130px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>Lab Bahasa
+			</button>
+		</div>
+
+		<!-- Ruang E lt2 -->
+		<div class="kelas ruang-e">
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:92px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>E 2.4
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:92px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>E 2.3
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:92px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>E 2.2
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:92px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>E 2.1
+			</button>
+		</div>
+
+		<!-- Ruang F lt2 -->
+		<div class="kelas d-flex ruang-f">
+			<button class="btn btn-room mr-1" style="width: 130px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 2.1
+			</button>
+			<button class="btn btn-room mr-1" style="width: 90px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-clinic-medical fa-lg"></i><br>R. BK
+			</button>
+			<button class="btn btn-room" style="background-color: #0080ff; margin-right: 25px; width: 80px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-toilet fa-lg"></i><br>WC
+			</button>
+			<button class="btn btn-room mr-1" style="width: 100px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>F 2.3
+			</button>
+			<button class="btn btn-room mr-1 bg-warning" style="width: 105px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab F 2.4
+			</button>
+			<button class="btn btn-room mr-1 bg-warning" style="width: 105px; height:90px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-desktop fa-lg"></i><br>Lab F 2.5
+			</button>
+		</div>
+
+		<!-- Ruang G lt2 -->
+		<div class="kelas ruang-g">
+			<button class="btn btn-room d-block mb-1" style="width: 100px; height:100px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-chalkboard-teacher fa-lg"></i><br>G 2.1
+			</button>
+		</div>
+
+		<!-- Ruang ICT -->
+		<div class="kelas ict">
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:50px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-user-shield fa-lg"></i> ICT
+			</button>
+			<button class="btn btn-room d-block mb-1" style="width: 120px; height:50px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-sink fa-lg"></i> Pantry
+			</button>
+			<button class="btn btn-room d-block mb-1" style="background-color: #0080ff; width: 120px; height:50px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-toilet fa-lg"></i> WC Guru
+			</button>
+		</div>
+
+		<!-- lapang -->
+		<div class="kelas lapang">
+			<button class="btn btn-room mr-1" style="font-size:25px; width: 480px; height:375px" data-toggle="modal" data-target="#modalData">
+				<i class="fas fa-basketball-ball fa-2x"></i><br><span>Lapang</span>
+			</button>
+		</div>
+		
+
 	</div>
 	<!-- Map Lantai 2 End -->
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalData" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
