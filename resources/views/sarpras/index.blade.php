@@ -41,9 +41,12 @@
                         <td>{{ $s->kondisi}}</td>
                         <td>{{ $s->catatan}}</td>
                         <td>
-                            <a href="{{ url('/sarpras/edit',$s->id)}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                            <!-- <form action=""></form> -->
-                            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            <form action="{{ route('sarpras.destroy', $s->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <a href="{{ url('/sarpras/'.$s->id.'/edit')}}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                            </form> 
                         </td>
                     </tr>
                     @endforeach

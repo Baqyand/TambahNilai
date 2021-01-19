@@ -57,7 +57,7 @@ class RuanganController extends Controller
             'lantai'    => 'required|numeric',
             'blok'      => 'required|string',
             'status'    => 'required',
-            'deskripsi' => 'text'
+            'deskripsi' => 'required|string'
         ], [
             'nama.required'     => 'Nama ruangan tidak boleh kosong',
             'tipe.required'     => 'Pilih tipe terlebih dahulu',

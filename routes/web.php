@@ -27,6 +27,6 @@ Route::post('/ruangan', [RuanganController::class, 'store'])->name('ruangan.stor
 Route::get('/sarpras', [SaranaPrasaranaController::class, 'index'])->name('sarpras.index');
 Route::get('/sarpras/create', [SaranaPrasaranaController::class, 'create'])->name('sarpras.create');
 Route::post('/sarpras', [SaranaPrasaranaController::class, 'store'])->name('sarpras.store');
-Route::get('/sarpras/edit/{s:id}', [SaranaPrasaranaController::class,'edit'])->name('sarpras.edit');
+Route::get('/sarpras/{id}/edit', [SaranaPrasaranaController::class,'edit'])->name('sarpras.edit');
 Route::patch('/sarpras/{id}', [SaranaPrasaranaController::class,'update'])->name('sarpras.update');
 Route::delete('/sarpras/{id}',[SaranaPrasaranaController::class,'destroy'])->name('sarpras.destroy');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Sarpras;
 use App\Models\Ruangan;
 use Alert;
+use RealRashid\SweetAlert\Facades\Alert as FacadesAlert;
 
 class SaranaPrasaranaController extends Controller
 {
@@ -27,30 +28,30 @@ class SaranaPrasaranaController extends Controller
             'nama' => 'required',
             'id_ruangan' => 'required',
             'kondisi' => 'required',
-            'jumlah' => 'required',
-            'catatan' => 'required||string'
+            'jumlah' => 'required'
         ],[
-            'id_ruangan' => $request->id_ruangan,
-            'nama' => $request->nama,
-            'catatan' => $request->catatan,
-            'kondisi' => $request->kondisi,
-            'jumlah' => $request->jumlah
+            'id_ruangan.required' => "Pilih ruangan terlebih dahulu",
+            'nama.required' => "Masukan nama item terlebih dahulu!",
+            'kondisi.required' => "Pilih kondisi ruangan",
+            'jumlah.required' => "Masukan jumlah item"
         ]);
 
-        $create = Sarpras::create($validatedata);
+        unset($request->_token);
+
+        $create = Sarpras::create($request->all());
         if($create){
-            Alert::success('Success', 'Data berhasil ditambahkan');
-        return redirect('/sarpras');
+            FacadesAlert::success('Success', 'Data berhasil ditambahkan');
+            return redirect('/sarpras')->with("success", "Data berhasil dtambahkan");
         }
         else{
-            Alert::error('Error', 'Data gagal ditambahkan');
-            return redirect('/sarpras/create');
+            FacadesAlert::error('Error', 'Data gagal ditambahkan');
+            return redirect('/sarpras/create')->with("error", "Data gagal dtambahkan");
         }
     }
 
     public function edit(Request $request, $id){
         //dd($id);
-        $ruangan = Ruangan::where('id', $id)->get();
+        $ruangan = Ruangan::get();
         $sarpras = Sarpras::find($id);
 
       
