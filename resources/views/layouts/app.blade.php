@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mapping School</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Mapping School</title>
 
-    {{-- Favicon --}}
-    <link rel="shortcut icon" href="{{ asset('img/smk.png') }}" type="image/x-icon">
-	
+		{{-- Favicon --}}
+		<link rel="shortcut icon" href="{{ asset('img/smk.png') }}" type="image/x-icon">
+
 		{{-- JS --}}
 		<script src="{{ asset('js/app.js') }}"></script>
 				
@@ -25,7 +25,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 
-    <style>
+		<style>
 			*{
 				font-family: 'Poppins', sans-serif;
 			}
@@ -64,7 +64,7 @@
 				width: 16rem;
 			}
 			.page-content {
-        min-width: 100vw;
+				min-width: 100vw;
 			}
 			.list-group-item span {
 				font-size: 0.9em;
@@ -78,11 +78,25 @@
 				}
 			.content .map {
 					overflow: auto;
-					max-height: 85vh;
+					max-height: 90vh;
 			}
 
 			.lantai-act {
 				display: none;
+			}
+
+			.title {
+				margin-left: 0.5rem;
+				margin-top: 0.5rem;
+			}
+			.select-lantai {
+				margin-left: 0.5rem;
+				margin-top: 0.2rem;
+			}
+
+			.btn-rute {
+				height: 40px;
+				margin-top: 2px;
 			}
 
 			@media (min-width: 768px) {
@@ -99,9 +113,27 @@
 					margin-left: -16rem;
 				}
 			}
-    </style>
 
-</head>
+			@media (max-width: 768px) {
+				.title {
+					margin-top: 0.5rem;
+					font-size: 0.8em;
+				}
+				#lantai {
+					height: 25px;
+					width: 45px;
+					padding: 0 5px;
+				}
+				#lantai option {
+					padding: 0 5px;
+				}
+				.btn-rute {
+					height: 25px;
+				}
+			}
+		</style>
+
+	</head>
 <body>
     
     <div class="d-flex" id="wrapper">
@@ -133,16 +165,18 @@
 			<div class="page-content">
 
 				<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-					<button class="btn btn-light mt-1" id="btn-toggle">
-						<i class="fas fa-bars fa-lg text-dark mt-2"></i>	
-          </button>
-          <h4 class="ml-2 mt-2 pt-1">{{ $title }}</h4>
-
-					<div class="select-lantai ml-3">
-						<select class="form-control" id="lantai">
-							<option>1</option>
-							<option>2</option>
-						</select>
+					<div class="d-flex justify-content-start">
+						<button class="btn btn-light" id="btn-toggle">
+							<i class="fas fa-bars fa-lg text-dark mt-2"></i>	
+						</button>
+						<h4 class="title">{{ $title }}</h4>
+						<div class="select-lantai">
+							<select class="form-control" id="lantai" >
+								<option>1</option>
+								<option>2</option>
+							</select>
+						</div>
+						<button class="btn btn-sm ml-2 btn-primary btn-rute" data-toggle="modal" data-target="#modalNavigasi">Rute</button>
 					</div>
 				</nav>
 
@@ -159,32 +193,56 @@
 			</div>
 			<!-- Page Content End -->
 
-	</div>		
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="modalNavigasi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Navigasi</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					
+					<div class="select-navigasi">
+						<select class="form-control mb-2" id="navigasi-awal" >
+							<option>Select Awal</option>
+							<option>Gerbang</option>
+							<option>Lobby</option>
+						</select>
+						<select class="form-control" id="navigasi-tujuan" >
+							<option>Select Tujuan</option>
+							<option>Gedung A</option>
+							<option>Gedung B</option>
+							<option>Gedung C</option>
+							<option>Gedung D</option>
+							<option>Gedung E</option>
+							<option>Gedung F</option>
+							<option>Gedung G</option>
+							<option>Gedung H</option>
+							<option>Masjid</option>
+							<option>Kantin</option>
+						</select>
+					</div>
+					
+				</div>
+				<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" id="btn-navigasi">Navigate</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
+	<script src="{{ asset('js/main.js') }}"></script>
 	<script src="{{ asset('datatables/jquery.dataTables.min.js') }}"></script>
-  	<script src="{{ asset('datatables/dataTables.bootstrap4.min.js') }}"></script>
+  <script src="{{ asset('datatables/dataTables.bootstrap4.min.js') }}"></script>
 
-	<script>
-		$("#btn-toggle").click(function(e) {
-			e.preventDefault();
-			$("#wrapper").toggleClass("toggled");
-		});
-
-		$("#lantai").on("change", function(){
-
-			if($("#lantai").val() == "1") {
-				$(".map-1").toggle("lantai-act");
-				$(".map-2").toggle("lantai-act");
-			} else {
-				$(".map-1").toggle("lantai-act");
-				$(".map-2").toggle("lantai-act");
-			}
-
-		});
-	</script>
-		
 	@stack('js')			
     
 </body>

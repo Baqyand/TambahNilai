@@ -100,7 +100,7 @@
 			text-align: center;
 			background-color: #7b7ff6;
 			color: #f0f0f0;
-			font-weight: 600;
+			font-weight: 500;
 			border-radius: 0;
 		}
 
@@ -108,6 +108,8 @@
 			opacity: 0.8;
 			color: white;
 		}
+
+		
 
 	</style>
 @endpush
@@ -118,7 +120,7 @@
 		<div class="map-1" >
 		
 		<!-- Layout  -->
-		<div class="img-maps mb-5 ml-3">
+		<div class="layout-maps mb-5 ml-3">
 			<img src="{{ asset('img/lantai-1.png') }}" width="1280px" class="img-maps" alt="img-maps">
 		</div>
 		<!-- Layout End  -->
